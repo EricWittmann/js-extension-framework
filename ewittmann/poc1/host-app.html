@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>POC1 - JSEF (Host Application)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href="bootstrap-2.2.2/css/bootstrap.css" rel="stylesheet">
+    <link href="bootstrap-2.2.2/css/bootstrap-responsive.css" rel="stylesheet">
+    
+    <script src="jsef.js"></script>
+    <script src="jquery-1.8.3/jquery-1.8.3.min.js"></script>
+    <script src="bootstrap-2.2.2/js/bootstrap.min.js"></script>
+    <script src="host-app.js"></script>
+    <script src="app-extension-1.js"></script>
+    <script src="app-extension-2.js"></script>
+  </head>
+
+  <body style="padding-top: 60px; padding-bottom: 40px">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="#">Extensible Application</a>
+          <div class="nav-collapse collapse">
+            <ul id="main-nav-bar" class="nav">
+              <li class="active menu-home"><a href="#">Home</a></li>
+              <li class="menu-core-item-1"><a href="#ci2">Core Item 1</a></li>
+              <li class="dropdown menu-core-dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Core Dropdown <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li class="menu-core-action-1"><a href="#">Core Action 1</a></li>
+                  <li><a href="#">Core Action 2</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Main hero unit for a primary marketing message or call to action -->
+      <div class="hero-unit">
+        <h1>I am: Host Application</h1>
+        <p>
+          This is a host application that has been written to be extensible.  Extensions can be
+          contributed to the following extension points:
+        </p>
+        <ul>
+          <li>navigation-bar</li>
+          <li>heading</li>
+        </ul>
+      </div>
+
+      <!-- Container for all of the 'Headings' -->
+      <div id="heading-container" class="row">
+      </div>
+
+      <hr />
+
+      <footer>
+        <p>&copy; Eric Wittmann 2013</p>
+      </footer>
+
+    </div> <!-- /container -->
+  </body>
+</html>
