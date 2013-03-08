@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>POC1 (GWT Version) - JSEF (Host Application)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href="../../../../../../webapp/bootstrap-2.2.2/css/bootstrap.css" rel="stylesheet">
+    <link href="../../../../../../webapp/bootstrap-2.2.2/css/bootstrap-responsive.css" rel="stylesheet">
+    
+    <script src="../../../../../../webapp/js/jsef.js"></script>
+    <script src="../../../../../../webapp/jquery-1.8.3/jquery-1.8.3.min.js"></script>
+    <script src="../../../../../../webapp/bootstrap-2.2.2/js/bootstrap.min.js"></script>
+  </head>
+
+  <body style="padding-top: 60px; padding-bottom: 40px">
+  <div data-field="all">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="#">Extensible Application</a>
+          <div class="nav-collapse collapse">
+            <ul data-field="main-nav-bar" id="main-nav-bar" class="nav">
+              <li class="active menu-home"><a href="#">Home</a></li>
+              <li class="menu-core-item-1"><a href="#ci2">Core Item 1</a></li>
+              <li class="dropdown menu-core-dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Core Dropdown <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li class="menu-core-action-1"><a href="#">Core Action 1</a></li>
+                  <li><a href="#">Core Action 2</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Main hero unit for a primary marketing message or call to action -->
+      <div class="hero-unit">
+        <h1>I am: GWT Host Application</h1>
+        <p>
+          This is a host application written in GWT that has been designed to be extensible.  Extensions can be
+          contributed to the following extension points:
+        </p>
+        <ul>
+          <li>navigation-bar</li>
+          <li>heading</li>
+        </ul>
+      </div>
+
+      <!-- Container for all of the 'Headings' -->
+      <div data-field="heading-container" id="heading-container" class="row">
+        <div data-field="heading" class="span4">
+          <h2 data-field="title">Core Heading 1</h2>
+          <p data-field="description">This is a heading that was added by the host application during startup/initialization of the app.</p>
+          <p><a class="btn" href="#">View details »</a></p>
+        </div>
+      </div>
+
+      <hr />
+
+      <footer>
+        <p>&copy; Eric Wittmann 2013</p>
+      </footer>
+
+    </div> <!-- /container -->
+    </div>
+  </body>
+</html>

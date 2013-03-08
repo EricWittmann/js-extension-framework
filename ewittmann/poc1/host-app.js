@@ -29,7 +29,6 @@ $(document).ready(function() {
 		createMenuItem(data);
 	});
 	
-	
 	createHeading({
 		title: "Core Heading 1",
 		description: "This is a heading that was added by the host application during startup/initialization of the app."
