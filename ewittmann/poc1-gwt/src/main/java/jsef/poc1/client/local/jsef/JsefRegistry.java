@@ -26,7 +26,7 @@ public class JsefRegistry {
      */
     public native void registerExtensionPoint(final String extensionPointName, final IExtensionPointCallback callback)
             throws JavaScriptException /*-{
-		return $wnd.jsef(extensionPointName).register(function(epo, data) {
+		$wnd.jsef(extensionPointName).register(function(epo, data) {
 		    callback.@jsef.poc1.client.local.jsef.IExtensionPointCallback::contributionMade(Lcom/google/gwt/core/client/JavaScriptObject;)(data);
 		});
     }-*/;
