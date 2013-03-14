@@ -15,12 +15,14 @@
  */
 package jsef.poc2.host.client.local.services;
 
+import javax.enterprise.context.ApplicationScoped;
+
 import jsef.poc2.host.client.local.beans.ArtifactBean;
 
 /**
- *
  * @author eric.wittmann@redhat.com
  */
+@ApplicationScoped
 public class ArtifactService {
 
     /**
@@ -48,6 +50,7 @@ public class ArtifactService {
             .setDescription("This is a WSDL Document!")
             .setType("WsdlDocument")
             .setUuid("1")
+            .setCreatedBy("ewittman")
             .addClassifiedBy("http://www.example.com/regions.owl#China")
             .addClassifiedBy("http://www.example.com/regions.owl#Japan");
         return bean;
@@ -59,6 +62,7 @@ public class ArtifactService {
             .setDescription("This is a (switchyard.xml) Switchyard Document.")
             .setType("SwitchyardDocument")
             .setUuid("2")
+            .setCreatedBy("kbabo")
             .addClassifiedBy("http://www.example.com/regions.owl#Maine")
             .addClassifiedBy("http://www.example.com/regions.owl#Florida")
             .addClassifiedBy("http://www.example.com/regions.owl#Hawaii")

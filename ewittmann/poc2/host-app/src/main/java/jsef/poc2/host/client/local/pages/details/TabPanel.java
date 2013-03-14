@@ -50,4 +50,11 @@ public class TabPanel extends FlowPanel {
         return pane;
     }
 
+    /**
+     * @param tabId
+     */
+    public TabPane getTab(String tabId) {
+        return tabMap.get(tabId);
+    }
+
 }

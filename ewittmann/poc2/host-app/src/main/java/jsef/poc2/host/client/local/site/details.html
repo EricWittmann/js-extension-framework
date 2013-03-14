@@ -32,8 +32,11 @@
 
     <div class="container">
       <div class="row">
-        <div class="span12">
+        <div class="span11">
           <div style="font-size:16px; padding: 8px; padding-bottom: 15px;text-shadow: 1px 1px #fefeee">Showing details for artifact: <span data-field="artifact-name" style="font-weight: bold">Name Goes Here</span></div>
+        </div>
+        <div class="span1">
+          <a data-field="go-back" href="dashboard.html">(go back)</a>
         </div>
       </div>
 
@@ -45,10 +48,48 @@
           </ul>
           <div data-field="tab-panel" id="detailsTabContent" class="tab-content">
             <div class="tab-pane fade in active" id="overview">
-              <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
+              <!-- Overview Tab -->
+              <form class="form-horizontal" data-field="overview-form">
+                <div class="control-group">
+                  <label class="control-label">UUID:</label>
+                  <div class="controls">
+                    <input data-field="uuid" type="text" value="1"></input>
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label class="control-label">Type:</label>
+                  <div class="controls">
+                    <input data-field="type" type="text" value="WsdlDocument"></input>
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label class="control-label">Created By:</label>
+                  <div class="controls">
+                    <input data-field="createdBy" type="text" value="ewittman"></input>
+                  </div>
+                </div>
+              </form>
             </div>
             <div class="tab-pane fade" id="relationships">
-              <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>
+              <!-- Classifiers Tab -->
+              <table class="table" data-field="classifiers-table">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Classifier</th>
+                  </tr>
+                </thead>
+                <tbody data-field="tbody">
+                  <tr>
+                    <td>1</td>
+                    <td>http://www.example.org/Regions.owl#Russia</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>http://www.example.org/Regions.owl#Ireland</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>

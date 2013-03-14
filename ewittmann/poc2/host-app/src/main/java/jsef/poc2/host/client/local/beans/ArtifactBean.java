@@ -30,6 +30,7 @@ public class ArtifactBean {
     private String type;
     private String uuid;
     private String name;
+    private String createdBy;
     private String description;
     private List<String> classifiedBy = new ArrayList<String>();
     private Map<String, String> customProperties = new HashMap<String, String>();
@@ -152,6 +153,21 @@ public class ArtifactBean {
      */
     public String getCustomProperty(String key) {
         return this.customProperties.get(key);
+    }
+
+    /**
+     * @return the createdBy
+     */
+    public String getCreatedBy() {
+        return createdBy;
+    }
+
+    /**
+     * @param createdBy the createdBy to set
+     */
+    public ArtifactBean setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+        return this;
     }
 
 }
