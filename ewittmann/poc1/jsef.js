@@ -1,8 +1,7 @@
-(function() {
-    var window = this;
+(function(window, undefined) {
     var extensionPointRegistry = {};
 
-    jsef = window.jsef = function(extensionPointName) {
+    window.jsef = function(extensionPointName) {
         return new jsefObject(extensionPointName);
     };
 
@@ -71,4 +70,4 @@
     		this.callback(this, data);
     	};
     };
-})();
+})(window);

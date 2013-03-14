@@ -1,86 +1,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>jsef.poc</groupId>
-  <artifactId>jsef-poc1-gwt</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <parent>
+    <groupId>jsef.poc</groupId>
+    <artifactId>jsef-poc2</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
+  <artifactId>jsef-poc2-extension-1</artifactId>
   <packaging>war</packaging>
-  
-  <properties>
-    <!-- Global Settings -->
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
 
-    <!-- Maven plugin versions -->
-    <maven.surefire.report.plugin.version>2.4.3</maven.surefire.report.plugin.version>
-    <maven.surefire.plugin.version>2.7.1</maven.surefire.plugin.version>
-    <maven.assembly.plugin.version>2.2</maven.assembly.plugin.version>
-    <maven.install.plugin.version>2.3.1</maven.install.plugin.version>
-    <maven.javadoc.plugin.version>2.7</maven.javadoc.plugin.version>
-    <maven.jxr.plugin.version>2.1</maven.jxr.plugin.version>
-    <maven.jar.plugin.version>2.4</maven.jar.plugin.version>
-    <maven.war.plugin.version>2.1.1</maven.war.plugin.version>
-    <maven.bundle.plugin.version>2.1.0</maven.bundle.plugin.version>
-    <maven.compiler.plugin.version>2.3.2</maven.compiler.plugin.version>
-    <maven.source.plugin.version>2.1.2</maven.source.plugin.version>
-    <maven.deploy.plugin.version>2.5</maven.deploy.plugin.version>
-    <maven.clean.plugin.version>2.4.1</maven.clean.plugin.version>
-    
-    <!-- Third party libraries -->
-    <commons.io.version>2.4</commons.io.version>
-    <commons.lang3.version>3.1</commons.lang3.version>
-    <commons.config.version>1.8</commons.config.version>
-    <commons.fileupload.version>1.2.2</commons.fileupload.version>
-    <org.jboss.resteasy.version>2.3.5.Final</org.jboss.resteasy.version>
-    <errai.version>3.0-SNAPSHOT</errai.version>
-    <gwt.version>2.5.0</gwt.version>
-    <weld.version>1.1.6.Final</weld.version>
-    <mvel.version>2.1.Beta8</mvel.version>
-    <jetty.version>6.1.25</jetty.version>
-    <uel.impl.version>2.1.2-b04</uel.impl.version>
-    <servlet-api.version>3.0.1</servlet-api.version>
-    <jsp-api.version>2.0</jsp-api.version>
-    <jboss-ejb3-api.version>3.1.0</jboss-ejb3-api.version>
-    <cdi-api.version>1.0-SP4</cdi-api.version>
-    <jboss-logging.version>3.0.0.Beta4</jboss-logging.version>
-    <log4j.version>1.2.16</log4j.version>
-    <slf4j.version>1.6.1</slf4j.version>
-    <slf4j.api.version>1.5.11</slf4j.api.version>
-    <slf4j.log4j.version>1.5.11</slf4j.log4j.version>
-    <junit.version>4.10</junit.version>
-  </properties>
-  
-  <repositories>
-    <repository>
-      <id>jboss-public-repository-group</id>
-      <name>JBoss Public Repository Group</name>
-      <url>http://repository.jboss.org/nexus/content/groups/developer/</url>
-      <layout>default</layout>
-      <releases>
-        <enabled>true</enabled>
-        <updatePolicy>never</updatePolicy>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-        <updatePolicy>never</updatePolicy>
-      </snapshots>
-    </repository>
-  </repositories>
-
-  <pluginRepositories>
-    <pluginRepository>
-      <id>jboss-public-repository-group</id>
-      <name>JBoss Public Repository Group</name>
-      <url>http://repository.jboss.org/nexus/content/groups/developer/</url>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </pluginRepository>
-  </pluginRepositories>
-  
   <dependencies>
     <!-- Third Party Dependencies -->
     <dependency>
@@ -243,17 +172,6 @@
     <outputDirectory>src/main/webapp/WEB-INF/classes</outputDirectory>
     <plugins>
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>${maven.compiler.plugin.version}</version>
-        <configuration>
-          <source>1.6</source>
-          <target>1.6</target>
-          <showDeprecation>false</showDeprecation>
-          <showWarnings>false</showWarnings>
-        </configuration>
-      </plugin>
-      <plugin>
         <artifactId>maven-war-plugin</artifactId>
         <version>${maven.war.plugin.version}</version>
         <configuration>
@@ -303,7 +221,7 @@
                 <include>www-test/**</include>
                 <include>.gwt/**</include>
                 <include>.errai/**</include>
-                <include>src/main/webapp/app/**</include>
+                <include>src/main/webapp/ext/**</include>
                 <include>src/main/webapp/WEB-INF/deploy/**</include>
                 <include>src/main/webapp/WEB-INF/lib/**</include>
                 <include>src/main/webapp/WEB-INF/classes/**</include>
@@ -315,35 +233,6 @@
         </configuration>
       </plugin>
     </plugins>
-    <pluginManagement>
-      <plugins>
-        <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
-        <plugin>
-          <groupId>org.eclipse.m2e</groupId>
-          <artifactId>lifecycle-mapping</artifactId>
-          <version>1.0.0</version>
-          <configuration>
-            <lifecycleMappingMetadata>
-              <pluginExecutions>
-                <pluginExecution>
-                  <pluginExecutionFilter>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>gwt-maven-plugin</artifactId>
-                    <versionRange>[2.5.0,)</versionRange>
-                    <goals>
-                      <goal>resources</goal>
-                    </goals>
-                  </pluginExecutionFilter>
-                  <action>
-                    <ignore></ignore>
-                  </action>
-                </pluginExecution>
-              </pluginExecutions>
-            </lifecycleMappingMetadata>
-          </configuration>
-        </plugin>
-      </plugins>
-    </pluginManagement>
   </build>
 
 </project>
