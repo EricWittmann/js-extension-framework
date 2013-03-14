@@ -5,6 +5,8 @@ import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
 import jsef.poc2.host.client.local.beans.ArtifactBean;
+import jsef.poc2.host.client.local.beans.TabContributionData;
+import jsef.poc2.host.client.local.jsef.IExtensionPointCallback;
 import jsef.poc2.host.client.local.jsef.JsefRegistry;
 import jsef.poc2.host.client.local.pages.details.ClassifiersTable;
 import jsef.poc2.host.client.local.pages.details.OverviewForm;
@@ -20,6 +22,7 @@ import org.jboss.errai.ui.nav.client.local.TransitionAnchor;
 import org.jboss.errai.ui.shared.api.annotations.DataField;
 import org.jboss.errai.ui.shared.api.annotations.Templated;
 
+import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.event.logical.shared.ValueChangeHandler;
 import com.google.gwt.user.client.ui.Composite;
@@ -77,6 +80,17 @@ public class DetailsPage extends Composite {
         overviewPane.add(overviewForm);
         TabPane classifiersPane = tabPanel.createTab("classifiers");
         classifiersPane.add(classifiersTable);
+
+        jsef.registerExtensionPoint("artifact-details-tab", new IExtensionPointCallback() {
+            @Override
+            public void contributionMade(JavaScriptObject data) {
+                TabContributionData tabData = (TabContributionData) data.cast();
+                tabBar.addTab(tabData.getDisplayName(), tabData.getId());
+                TabPane pane = tabPanel.createTab(tabData.getId());
+                pane.add(new InlineLabel("Extension tab pane here!"));
+            }
+        });
+
         tabBar.addValueChangeHandler(new ValueChangeHandler<String>() {
             @Override
             public void onValueChange(ValueChangeEvent<String> event) {
