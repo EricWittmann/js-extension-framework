@@ -1,13 +1,16 @@
 package jsef.poc2.host.client.local.pages;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
-import jsef.poc2.host.client.local.beans.ArtifactBean;
-import jsef.poc2.host.client.local.beans.TabContributionData;
+import jsef.poc2.host.client.local.beans.Artifact;
 import jsef.poc2.host.client.local.jsef.IExtensionPointCallback;
 import jsef.poc2.host.client.local.jsef.JsefRegistry;
+import jsef.poc2.host.client.local.jsef.ext.TabContribution;
 import jsef.poc2.host.client.local.pages.details.ClassifiersTable;
 import jsef.poc2.host.client.local.pages.details.OverviewForm;
 import jsef.poc2.host.client.local.pages.details.TabBar;
@@ -40,24 +43,23 @@ public class DetailsPage extends Composite {
 
     @PageState
     private String artifactId;
-    private transient ArtifactBean artifact;
+    private transient Artifact artifact;
 
     @Inject
     private ArtifactService artifactService;
     @Inject
     private JsefRegistry jsef;
 
+    Map<String, TabContribution> extTabs = new HashMap<String, TabContribution>();
+
     @Inject @DataField("artifact-name")
     InlineLabel artifactName;
-
     @Inject @DataField("go-back")
     TransitionAnchor<DashboardPage> goBackLink;
-
     @Inject @DataField("tab-bar")
     TabBar tabBar;
     @Inject @DataField("tab-panel")
     TabPanel tabPanel;
-
     @Inject
     OverviewForm overviewForm;
     @Inject
@@ -84,10 +86,10 @@ public class DetailsPage extends Composite {
         jsef.registerExtensionPoint("artifact-details-tab", new IExtensionPointCallback() {
             @Override
             public void contributionMade(JavaScriptObject data) {
-                TabContributionData tabData = (TabContributionData) data.cast();
-                tabBar.addTab(tabData.getDisplayName(), tabData.getId());
-                TabPane pane = tabPanel.createTab(tabData.getId());
-                pane.add(new InlineLabel("Extension tab pane here!"));
+                TabContribution contribution = (TabContribution) data.cast();
+                tabBar.addTab(contribution.getDisplayName(), contribution.getId());
+                tabPanel.createTab(contribution.getId());
+                extTabs.put(contribution.getId(), contribution);
             }
         });
 
@@ -139,6 +141,9 @@ public class DetailsPage extends Composite {
      * @param newTabId
      */
     private void renderExtensionTab(String newTabId) {
+        TabPane tab = tabPanel.getTab(newTabId);
+        TabContribution tabContribution = extTabs.get(newTabId);
+        tabContribution.render(artifact, tab.getElement());
     }
 
 }

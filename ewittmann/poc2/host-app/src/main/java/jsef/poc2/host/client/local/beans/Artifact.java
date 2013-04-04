@@ -25,7 +25,7 @@ import java.util.Map;
  *
  * @author eric.wittmann@redhat.com
  */
-public class ArtifactBean {
+public class Artifact {
 
     private String type;
     private String uuid;
@@ -38,7 +38,7 @@ public class ArtifactBean {
     /**
      * Constructor.
      */
-    public ArtifactBean() {
+    public Artifact() {
     }
 
     /**
@@ -79,7 +79,7 @@ public class ArtifactBean {
     /**
      * @param type the type to set
      */
-    public ArtifactBean setType(String type) {
+    public Artifact setType(String type) {
         this.type = type;
         return this;
     }
@@ -87,7 +87,7 @@ public class ArtifactBean {
     /**
      * @param uuid the uuid to set
      */
-    public ArtifactBean setUuid(String uuid) {
+    public Artifact setUuid(String uuid) {
         this.uuid = uuid;
         return this;
     }
@@ -95,7 +95,7 @@ public class ArtifactBean {
     /**
      * @param name the name to set
      */
-    public ArtifactBean setName(String name) {
+    public Artifact setName(String name) {
         this.name = name;
         return this;
     }
@@ -103,7 +103,7 @@ public class ArtifactBean {
     /**
      * @param description the description to set
      */
-    public ArtifactBean setDescription(String description) {
+    public Artifact setDescription(String description) {
         this.description = description;
         return this;
     }
@@ -111,7 +111,7 @@ public class ArtifactBean {
     /**
      * @param classifiedBy the classifiedBy to set
      */
-    public ArtifactBean setClassifiedBy(List<String> classifiedBy) {
+    public Artifact setClassifiedBy(List<String> classifiedBy) {
         this.classifiedBy = classifiedBy;
         return this;
     }
@@ -119,7 +119,7 @@ public class ArtifactBean {
     /**
      * @param classification
      */
-    public ArtifactBean addClassifiedBy(String classification) {
+    public Artifact addClassifiedBy(String classification) {
         classifiedBy.add(classification);
         return this;
     }
@@ -142,7 +142,7 @@ public class ArtifactBean {
      * @param key
      * @param value
      */
-    public ArtifactBean addCustomProperty(String key, String value) {
+    public Artifact addCustomProperty(String key, String value) {
         this.customProperties.put(key, value);
         return this;
     }
@@ -165,7 +165,7 @@ public class ArtifactBean {
     /**
      * @param createdBy the createdBy to set
      */
-    public ArtifactBean setCreatedBy(String createdBy) {
+    public Artifact setCreatedBy(String createdBy) {
         this.createdBy = createdBy;
         return this;
     }

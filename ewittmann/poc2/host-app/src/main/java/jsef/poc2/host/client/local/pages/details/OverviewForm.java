@@ -18,7 +18,7 @@ package jsef.poc2.host.client.local.pages.details;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
-import jsef.poc2.host.client.local.beans.ArtifactBean;
+import jsef.poc2.host.client.local.beans.Artifact;
 
 import org.jboss.errai.ui.shared.api.annotations.DataField;
 import org.jboss.errai.ui.shared.api.annotations.Templated;
@@ -50,7 +50,7 @@ public class OverviewForm extends Composite {
     /**
      * @param artifact
      */
-    public void update(ArtifactBean artifact) {
+    public void update(Artifact artifact) {
         uuid.setValue(artifact.getUuid());
         type.setValue(artifact.getType());
         createdBy.setValue(artifact.getCreatedBy());

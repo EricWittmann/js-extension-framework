@@ -6,6 +6,9 @@ $(document).ready(function() {
 	// Contribute to the 'artifact-details-tab' extension-point.
 	jsef("artifact-details-tab").contribute({
 		id: "ext_tab_1",
-		displayName: "ExtTab1"
+		displayName: "ExtTab1",
+		render: function(artifact, tab) {
+			tab.innerHTML = "<div>Hello World!</div>";
+		}
 	});
 });

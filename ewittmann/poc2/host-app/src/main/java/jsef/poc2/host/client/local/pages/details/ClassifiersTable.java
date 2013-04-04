@@ -19,7 +19,7 @@ import java.util.List;
 
 import javax.enterprise.context.Dependent;
 
-import jsef.poc2.host.client.local.beans.ArtifactBean;
+import jsef.poc2.host.client.local.beans.Artifact;
 
 import org.jboss.errai.ui.shared.api.annotations.DataField;
 import org.jboss.errai.ui.shared.api.annotations.Templated;
@@ -49,7 +49,7 @@ public class ClassifiersTable extends Composite {
     /**
      * @param artifact
      */
-    public void update(ArtifactBean artifact) {
+    public void update(Artifact artifact) {
         // Clear all old children.
         tbody.setInnerHTML("");
         // Add new children

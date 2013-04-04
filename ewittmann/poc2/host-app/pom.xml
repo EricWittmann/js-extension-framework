@@ -119,6 +119,31 @@
       <version>${gwt.version}</version>
       <scope>provided</scope>
     </dependency>
+    
+    <!-- Logging -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>${slf4j.api.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+      <version>${slf4j.log4j.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>${log4j.version}</version>
+    </dependency>
+    
+    <!-- Other -->
+    <dependency>
+      <groupId>net.sf.jtidy</groupId>
+      <artifactId>jtidy</artifactId>
+      <version>r938</version>
+    </dependency>
+
   </dependencies>
 
   <build>

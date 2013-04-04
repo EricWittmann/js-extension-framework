@@ -17,7 +17,7 @@ package jsef.poc2.host.client.local.services;
 
 import javax.enterprise.context.ApplicationScoped;
 
-import jsef.poc2.host.client.local.beans.ArtifactBean;
+import jsef.poc2.host.client.local.beans.Artifact;
 
 /**
  * @author eric.wittmann@redhat.com
@@ -34,7 +34,7 @@ public class ArtifactService {
     /**
      * @param artifactId
      */
-    public ArtifactBean getArtifact(String artifactId) {
+    public Artifact getArtifact(String artifactId) {
         if (artifactId.equals("1")) {
             return createWsdlDocumentArtifact();
         } else if (artifactId.equals("2")) {
@@ -44,8 +44,8 @@ public class ArtifactService {
         }
     }
 
-    private ArtifactBean createWsdlDocumentArtifact() {
-        ArtifactBean bean = new ArtifactBean();
+    private Artifact createWsdlDocumentArtifact() {
+        Artifact bean = new Artifact();
         bean.setName("WSDL Document")
             .setDescription("This is a WSDL Document!")
             .setType("WsdlDocument")
@@ -56,8 +56,8 @@ public class ArtifactService {
         return bean;
     }
 
-    private ArtifactBean createSwitchyardDocumentArtifact() {
-        ArtifactBean bean = new ArtifactBean();
+    private Artifact createSwitchyardDocumentArtifact() {
+        Artifact bean = new Artifact();
         bean.setName("Switchyard Document")
             .setDescription("This is a (switchyard.xml) Switchyard Document.")
             .setType("SwitchyardDocument")
