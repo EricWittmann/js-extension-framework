@@ -17,6 +17,7 @@ package jsef.poc2.host.client.local.pages.details;
 
 import jsef.poc2.host.client.local.widgets.UnorderedListPanel;
 
+import com.google.gwt.dom.client.Element;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.logical.shared.HasValueChangeHandlers;
@@ -74,4 +75,23 @@ public class TabBar extends UnorderedListPanel implements HasValueChangeHandlers
     public HandlerRegistration addValueChangeHandler(ValueChangeHandler<String> handler) {
         return addHandler(handler, ValueChangeEvent.getType());
     }
+
+    /**
+     * @param tabId
+     */
+    public void selectTab(String tabId) {
+        String href = "#" + tabId;
+        int count = getWidgetCount();
+        for (int i = 0; i < count; i++) {
+            Anchor a = (Anchor) getWidget(i);
+            if (a.getHref().endsWith(href)) {
+                selectTab(a.getElement());
+                return;
+            }
+        }
+    }
+
+    private static final native void selectTab(Element tabAnchor)/*-{
+        $wnd.jQuery(tabAnchor).tab('show');
+    }-*/;
 }

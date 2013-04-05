@@ -4,10 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
 import jsef.poc2.host.client.local.beans.Artifact;
+import jsef.poc2.host.client.local.beans.JSONArtifact;
 import jsef.poc2.host.client.local.jsef.IExtensionPointCallback;
 import jsef.poc2.host.client.local.jsef.JsefRegistry;
 import jsef.poc2.host.client.local.jsef.ext.TabContribution;
@@ -38,7 +39,7 @@ import com.google.gwt.user.client.ui.InlineLabel;
  */
 @Templated("/jsef/poc2/host/client/local/site/details.html#all")
 @Page(path="details")
-@Dependent
+@Singleton
 public class DetailsPage extends Composite {
 
     @PageState
@@ -83,6 +84,9 @@ public class DetailsPage extends Composite {
         TabPane classifiersPane = tabPanel.createTab("classifiers");
         classifiersPane.add(classifiersTable);
 
+        // TODO the jsef registry needs to ensure that the extension point is only registered once
+        // TODO need to make the callback safer - will this class hang around forever because of this callback?
+        // TODO need to unregister the extension point when this widget goes away
         jsef.registerExtensionPoint("artifact-details-tab", new IExtensionPointCallback() {
             @Override
             public void contributionMade(JavaScriptObject data) {
@@ -106,6 +110,7 @@ public class DetailsPage extends Composite {
     public void onPageShowing() {
         artifact = artifactService.getArtifact(artifactId);
         artifactName.setText(artifact.getName());
+        tabBar.selectTab("overview");
         onTabChange("overview");
     }
 
@@ -143,7 +148,7 @@ public class DetailsPage extends Composite {
     private void renderExtensionTab(String newTabId) {
         TabPane tab = tabPanel.getTab(newTabId);
         TabContribution tabContribution = extTabs.get(newTabId);
-        tabContribution.render(artifact, tab.getElement());
+        tabContribution.render(JSONArtifact.create(artifact), tab.getElement());
     }
 
 }

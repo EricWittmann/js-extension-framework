@@ -8,7 +8,7 @@ $(document).ready(function() {
 		id: "ext_tab_1",
 		displayName: "ExtTab1",
 		render: function(artifact, tab) {
-			tab.innerHTML = "<div>Hello World!</div>";
+			tab.innerHTML = "<div>Custom tab content for artifact with UUID: " + artifact.uuid + "</div>";
 		}
 	});
 });
